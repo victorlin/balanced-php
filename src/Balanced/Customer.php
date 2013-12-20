@@ -43,6 +43,18 @@ class Customer extends Resource
         self::$_uri_spec = new URISpec('customers', 'id', '/v1');
         self::$_registry->add(get_called_class());
     }
+    
+    /**
+     * Update information about a customer
+     *
+     * @return \Balanced\Account
+     */
+    public function update($name, $email)
+    {
+        $this->name = $name;
+        $this->email = $email;
+        return $this->save();
+    }
 
     /**
      * Creates or associates a created card with the account. The default
